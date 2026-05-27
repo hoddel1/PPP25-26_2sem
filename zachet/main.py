@@ -1,21 +1,27 @@
 import random
 import sys
 
+
 ROCK = 'rock'
 SCISSORS = 'scissors'
 PAPER = 'paper'
+
 
 PLAYER_WIN = 'player'
 COMPUTER_WIN = 'computer'
 DRAW = 'draw'
 
+
 WIN_SCORE = 3
+
 
 WIN_RULES = {
     ROCK: SCISSORS,
     SCISSORS: PAPER,
     PAPER: ROCK
 }
+
+
 
 def get_computer_move():
     return random.choice([ROCK, SCISSORS, PAPER])
@@ -29,6 +35,8 @@ def determine_winner(player_move, computer_move):
     else:
         return COMPUTER_WIN
 
+
+
 def display_move(move):
     moves = {
         ROCK: "Камень",
@@ -37,8 +45,11 @@ def display_move(move):
     }
     return moves.get(move, move)
 
+
+
 def display_score(player_score, computer_score):
     print(f"\nСчёт: Игрок {player_score} : {computer_score} Компьютер")
+
 
 
 def display_round_result(player_move, computer_move, winner):
@@ -53,6 +64,7 @@ def display_round_result(player_move, computer_move, winner):
         print("Ничья!")
 
 
+
 def display_match_winner(winner):
     if winner == PLAYER_WIN:
         print("Поздравляем! Вы выиграли матч!")
@@ -60,8 +72,10 @@ def display_match_winner(winner):
         print("Компьютер выиграл матч. Попробуйте снова!")
 
 
+
 def is_valid_move(move):
     return move in [ROCK, SCISSORS, PAPER]
+
 
 
 def process_command(command, player_score, computer_score):
@@ -78,7 +92,10 @@ def process_command(command, player_score, computer_score):
         return False, player_score, computer_score
     
     return None, player_score, computer_score  
-  
+
+
+
+
 def play_match():
     player_score = 0
     computer_score = 0
@@ -136,6 +153,7 @@ def play_match():
         display_match_winner(COMPUTER_WIN)
     
     return True 
+
 
 
 def main():
